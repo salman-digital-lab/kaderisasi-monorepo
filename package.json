@@ -1,0 +1,12 @@
+{
+  "name": "kaderisasi-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "dev:web-fe": "npm run dev --workspace web-fe",
+    "build:web-fe": "npm run build --workspace web-fe"
+  },
+  "workspaces": [
+    "./packages/*",
+    "./apps/*"
+  ]
+}
