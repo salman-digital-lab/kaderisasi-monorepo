@@ -1,7 +1,7 @@
 import {
   ACTIVITY_TYPE_ENUM,
   ACTIVITY_CATEGORY_ENUM,
-} from "../../../../types/constants/activity";
+} from "@kaderisasi/data-model";
 
 export type FilterType = {
   page: number;

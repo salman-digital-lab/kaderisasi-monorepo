@@ -2,8 +2,8 @@ import {
   ACTIVITY_TYPE_ENUM,
   ACTIVITY_CATEGORY_ENUM,
   ACTIVITY_REGISTRANT_STATUS_ENUM,
-} from "../../types/constants/activity";
-import { USER_LEVEL_ENUM } from "../../types/constants/profile";
+  USER_LEVEL_ENUM,
+} from "@kaderisasi/data-model";
 
 export const USER_LEVEL_OPTIONS = [
   {

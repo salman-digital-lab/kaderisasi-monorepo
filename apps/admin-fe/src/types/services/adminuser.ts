@@ -1,4 +1,4 @@
-import { AdminUser, Permission, Role } from "../model/adminuser";
+import { AdminUser, Permission, Role } from "@kaderisasi/data-model";
 import { Pagination } from "./base";
 
 export type GetAdminUsersResp = {

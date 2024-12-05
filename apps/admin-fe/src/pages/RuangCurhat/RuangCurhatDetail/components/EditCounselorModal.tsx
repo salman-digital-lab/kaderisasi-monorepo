@@ -1,10 +1,11 @@
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { Modal, Select } from "antd";
 import { useRequest } from "ahooks";
-import { useState } from "react";
+import { RuangCurhatData } from "@kaderisasi/data-model";
+
 import { getAdminUsers } from "../../../../api/services/adminuser";
 import { PutRuangCurhatReq } from "../../../../types/services/ruangcurhat";
-import { RuangCurhatData } from "../../../../types/model/ruangcurhat";
-import { useParams } from "react-router-dom";
 
 type EditAdminUserProps = {
   counselorId?: number;

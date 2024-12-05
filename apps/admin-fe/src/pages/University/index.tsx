@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Space } from "antd";
 import { useRequest, useToggle } from "ahooks";
+import { University } from "@kaderisasi/data-model";
 
 import { getUniversities } from "../../api/services/university";
-import { University } from "../../types/model/university";
 
 import UniversityForm from "./components/UniversityForm";
 import UniversitiesTable from "./components/UniversityTable";

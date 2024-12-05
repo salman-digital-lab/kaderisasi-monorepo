@@ -3,12 +3,12 @@ import { Button, Card, Flex, notification, Table, Typography } from "antd";
 import { useParams } from "react-router-dom";
 import { useRequest } from "ahooks";
 import { SaveOutlined } from "@ant-design/icons";
+import { MandatoryProfileData } from "@kaderisasi/data-model";
 
 import { getActivity, putActivity } from "../../../../api/services/activity";
 
 import { PROFILE_DATA } from "../constants/default";
 import { MANDATORY_DATA_TABLE_COLUMNS } from "../constants/schema";
-import { MandatoryProfileData } from "../../../../types/model/activity";
 
 const { Title } = Typography;
 

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Button, Card, Col, Empty, notification, Row, Space } from "antd";
 import { PlusOutlined, SaveFilled } from "@ant-design/icons";
+import { Questionnaire } from "@kaderisasi/data-model";
 
 import QuestionField from "./components/QuestionField";
-import { Questionnaire } from "../../../../../types/model/activity";
 import { generateDefaultQuestion } from "../../constants/default";
 import { getActivity, putActivity } from "../../../../../api/services/activity";
 import { useRequest } from "ahooks";

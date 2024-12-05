@@ -1,5 +1,5 @@
 import { Button, Space, TableProps } from "antd";
-import { AdminUser, Role } from "../../../../types/model/adminuser";
+import { AdminUser, Role } from "@kaderisasi/data-model";
 
 export const TABLE_SCHEMA = (
   setEdittedRow: (val: AdminUser | undefined) => void,

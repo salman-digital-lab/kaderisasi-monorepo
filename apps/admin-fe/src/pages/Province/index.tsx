@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useRequest, useToggle } from "ahooks";
 import { Space } from "antd";
+import { Province } from "@kaderisasi/data-model";
 
 import { getProvinces } from "../../api/services/province";
-import { Province } from "../../types/model/province";
 
 import ProvinceTable from "./components/ProvinceTable";
 import ProvinceFilter from "./components/ProvinceFilter";

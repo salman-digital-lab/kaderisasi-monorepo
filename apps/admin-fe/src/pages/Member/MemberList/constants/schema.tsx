@@ -1,6 +1,7 @@
 import { TableProps } from "antd";
-import { Member } from "../../../../types/model/members";
 import { Link } from "react-router-dom";
+import { Member } from "@kaderisasi/data-model";
+
 import { UniversityRender } from "../../../../components/render/UniversityRender";
 import { renderUserLevel } from "../../../../constants/render";
 

@@ -1,12 +1,10 @@
 import {
   ACTIVITY_TYPE_ENUM,
   ACTIVITY_CATEGORY_ENUM,
-} from "../../types/constants/activity";
-import { USER_LEVEL_ENUM } from "../../types/constants/profile";
-import {
+  USER_LEVEL_ENUM,
   PROBLEM_OWNER_ENUM,
   PROBLEM_STATUS_ENUM,
-} from "../../types/constants/ruangcurhat";
+} from "@kaderisasi/data-model";
 
 export function renderUserLevel(level: USER_LEVEL_ENUM | undefined) {
   switch (level) {

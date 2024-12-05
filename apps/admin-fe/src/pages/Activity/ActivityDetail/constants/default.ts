@@ -1,4 +1,4 @@
-import { Questionnaire } from "../../../../types/model/activity";
+import { Questionnaire } from "@kaderisasi/data-model";
 
 export const QUESTION_DEFAULT = {
   text: {

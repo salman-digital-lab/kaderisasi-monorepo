@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { TableProps, Tag } from "antd";
 
-import { Activity } from "../../../../types/model/activity";
+import { Activity } from "@kaderisasi/data-model";
 import {
   renderActivityCategory,
   renderActivityType,

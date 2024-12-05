@@ -1,7 +1,7 @@
 import React from "react";
 import { Table, Card } from "antd";
 import { Pagination } from "../../../types/services/base";
-import { University } from "../../../types/model/university";
+import { University } from "@kaderisasi/data-model";
 import { TABLE_SCHEMA } from "../constants/schema";
 
 interface DataTypeProps {

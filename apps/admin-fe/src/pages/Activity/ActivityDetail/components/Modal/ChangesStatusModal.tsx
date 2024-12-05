@@ -1,11 +1,11 @@
 import { useRequest } from "ahooks";
 import { Form, Modal, notification, Select } from "antd";
 import { useState } from "react";
+import { ACTIVITY_REGISTRANT_STATUS_ENUM } from "@kaderisasi/data-model";
 
 import { putRegistrant } from "../../../../../api/services/activity";
 import { handleError } from "../../../../../api/errorHandling";
 import { ACTIVITY_REGISTRANT_STATUS_OPTIONS } from "../../../../../constants/options";
-import { ACTIVITY_REGISTRANT_STATUS_ENUM } from "../../../../../types/constants/activity";
 
 type ChangeStatusModalProps = {
   open: boolean;

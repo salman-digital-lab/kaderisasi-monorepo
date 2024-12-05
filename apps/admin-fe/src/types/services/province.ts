@@ -1,4 +1,4 @@
-import { Province } from "../model/province";
+import { Province } from "@kaderisasi/data-model";
 
 export type getProvincesReq = {
   search?: string;

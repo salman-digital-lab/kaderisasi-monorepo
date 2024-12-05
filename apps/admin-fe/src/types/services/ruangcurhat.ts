@@ -1,4 +1,4 @@
-import { RuangCurhatData } from "../model/ruangcurhat";
+import { RuangCurhatData } from "@kaderisasi/data-model";
 import { Pagination } from "./base";
 
 export type GetRuangCurhatsResp = {

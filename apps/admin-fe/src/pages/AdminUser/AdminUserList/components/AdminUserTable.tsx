@@ -5,7 +5,7 @@ import { TABLE_SCHEMA } from "../constants/schema";
 import { useRequest } from "ahooks";
 import { getAdminUsers } from "../../../../api/services/adminuser";
 import EditAdminUser from "./modal/EditAdminUser";
-import { AdminUser } from "../../../../types/model/adminuser";
+import { AdminUser } from "@kaderisasi/data-model";
 
 const AdminUserTable = () => {
   const [adminUserParam, setAdminUserParam] = useState({

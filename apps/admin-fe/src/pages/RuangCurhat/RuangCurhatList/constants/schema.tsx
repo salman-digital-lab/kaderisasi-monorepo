@@ -1,6 +1,7 @@
 import { Button, TableProps, Tag } from "antd";
 import { Link } from "react-router-dom";
-import { RuangCurhatData } from "../../../../types/model/ruangcurhat";
+import { RuangCurhatData } from "@kaderisasi/data-model";
+
 import {
   renderProblemOwner,
   renderProblemStatus,

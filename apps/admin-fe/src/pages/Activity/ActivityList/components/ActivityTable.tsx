@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Table } from "antd";
+import { Activity } from "@kaderisasi/data-model";
 
-import { Activity } from "../../../../types/model/activity";
 import { Pagination } from "../../../../types/services/base";
 
 import { TABLE_SCHEMA } from "../constants/schema";

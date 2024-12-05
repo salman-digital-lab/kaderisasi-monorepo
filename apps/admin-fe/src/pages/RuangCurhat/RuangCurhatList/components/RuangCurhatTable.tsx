@@ -4,7 +4,7 @@ import { Card, Table } from "antd";
 import { Pagination } from "../../../../types/services/base";
 
 import { TABLE_SCHEMA } from "../constants/schema";
-import { RuangCurhatData } from "../../../../types/model/ruangcurhat";
+import { RuangCurhatData } from "@kaderisasi/data-model";
 
 interface DataTypeProps {
   data?: {

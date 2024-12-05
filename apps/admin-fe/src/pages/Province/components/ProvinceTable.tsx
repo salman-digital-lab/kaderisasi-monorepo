@@ -1,9 +1,9 @@
 import React from "react";
 import { Table, Card } from "antd";
+import { Province } from "@kaderisasi/data-model";
 
 import { TABLE_SCHEMA } from "../constants/schema";
 
-import { Province } from "../../../types/model/province";
 
 interface DataTypeProps {
   data?: {

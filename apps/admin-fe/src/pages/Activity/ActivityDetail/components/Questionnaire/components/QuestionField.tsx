@@ -11,7 +11,7 @@ import {
 } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
 import LeftField from "./form";
-import { Questionnaire } from "../../../../../../types/model/activity";
+import { Questionnaire } from "@kaderisasi/data-model";
 import { generateDefaultQuestion } from "../../../constants/default";
 
 const { Text } = Typography;

@@ -1,4 +1,4 @@
-import { City } from "../model/city";
+import { City } from "@kaderisasi/data-model";
 
 export type getCitiesReq = {
   per_page: string;

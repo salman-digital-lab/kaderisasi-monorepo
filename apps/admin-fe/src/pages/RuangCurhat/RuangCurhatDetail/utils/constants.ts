@@ -1,5 +1,5 @@
 import { MenuProps } from "antd";
-import { PROBLEM_STATUS_ENUM } from "../../../../types/constants/ruangcurhat";
+import { PROBLEM_STATUS_ENUM } from "@kaderisasi/data-model";
 
 export const UPDATE_STATUS_MENU: MenuProps["items"] = [
   {

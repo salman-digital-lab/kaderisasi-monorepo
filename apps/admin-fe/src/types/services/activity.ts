@@ -2,8 +2,9 @@ import {
   ACTIVITY_TYPE_ENUM,
   ACTIVITY_CATEGORY_ENUM,
   ACTIVITY_REGISTRANT_STATUS_ENUM,
-} from "../constants/activity";
-import { Activity, Registrant } from "../model/activity";
+  Registrant,
+  Activity,
+} from "@kaderisasi/data-model";
 import { Pagination } from "./base";
 
 export type getActivitiesReq = {

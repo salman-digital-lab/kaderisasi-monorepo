@@ -24,7 +24,7 @@ import { getProfile, putProfile } from "../../../api/services/member";
 import { getUniversities } from "../../../api/services/university";
 import { GENDER_OPTION, USER_LEVEL_OPTIONS } from "../../../constants/options";
 import { getProvinces } from "../../../api/services/province";
-import { GENDER } from "../../../types/constants/profile";
+import { GENDER } from "@kaderisasi/data-model";
 
 type FormType = {
   name?: string;

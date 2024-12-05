@@ -13,7 +13,7 @@ import ActivityForm from "./ActivityForm";
 import {
   ACTIVITY_CATEGORY_ENUM,
   ACTIVITY_TYPE_ENUM,
-} from "../../../../types/constants/activity";
+} from "@kaderisasi/data-model";
 
 type FieldType = {
   fullname?: string;

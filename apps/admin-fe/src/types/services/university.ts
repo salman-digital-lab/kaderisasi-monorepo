@@ -1,4 +1,4 @@
-import { University } from "../model/university";
+import { University } from "@kaderisasi/data-model";
 import { Pagination } from "./base";
 
 export type getUniversitiesResp = {

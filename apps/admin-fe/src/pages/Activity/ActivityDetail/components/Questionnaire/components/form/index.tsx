@@ -1,6 +1,6 @@
 import { Input } from "antd";
 
-import { Questionnaire } from "../../../../../../../types/model/activity";
+import { Questionnaire } from "@kaderisasi/data-model";
 
 import DropdownForm from "./DropdownForm";
 

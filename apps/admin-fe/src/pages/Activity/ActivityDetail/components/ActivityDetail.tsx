@@ -27,8 +27,8 @@ import { getActivity, putActivity } from "../../../../api/services/activity";
 import {
   ACTIVITY_CATEGORY_ENUM,
   ACTIVITY_TYPE_ENUM,
-} from "../../../../types/constants/activity";
-import { USER_LEVEL_ENUM } from "../../../../types/constants/profile";
+  USER_LEVEL_ENUM,
+} from "@kaderisasi/data-model";
 
 const { Title } = Typography;
 

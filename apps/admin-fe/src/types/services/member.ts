@@ -1,4 +1,4 @@
-import { Member } from "../model/members";
+import { Member } from "@kaderisasi/data-model";
 import { Pagination } from "./base";
 
 export type getProfilesResp = {

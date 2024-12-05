@@ -1,5 +1,5 @@
 import { Modal, Select } from "antd";
-import { AdminUser } from "../../../../../types/model/adminuser";
+import { AdminUser } from "@kaderisasi/data-model";
 import { getRoles, putAdminUser } from "../../../../../api/services/adminuser";
 import { useRequest } from "ahooks";
 import { useState } from "react";
