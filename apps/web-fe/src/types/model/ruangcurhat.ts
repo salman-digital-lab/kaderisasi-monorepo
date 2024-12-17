@@ -1,9 +1,9 @@
 import {
   PROBLEM_OWNER_ENUM,
   PROBLEM_STATUS_ENUM,
-} from "../constants/ruangcurhat";
-import { AdminUser } from "./adminuser";
-import { PublicUser } from "./members";
+  AdminUser,
+  PublicUser,
+} from "@kaderisasi/data-model";
 
 export type RuangCurhatData = {
   id: number;
