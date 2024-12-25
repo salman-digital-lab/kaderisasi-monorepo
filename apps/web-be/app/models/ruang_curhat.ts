@@ -17,7 +17,7 @@ export default class RuangCurhat extends BaseModel {
   declare publicUser: BelongsTo<typeof PublicUser>
 
   @column()
-  declare problemOwner: number
+  declare problemOwnership: number
 
   @column()
   declare ownerName: string

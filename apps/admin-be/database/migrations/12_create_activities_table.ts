@@ -6,28 +6,32 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('name', 255).notNullable()
-      table.string('slug', 255).unique().notNullable()
-      table.text('description').nullable().defaultTo(null)
-      table.date('activity_start').nullable().defaultTo(null)
-      table.date('activity_end').nullable().defaultTo(null)
-      table.date('registration_start').nullable().defaultTo(null)
-      table.date('registration_end').nullable().defaultTo(null)
-      table.date('selection_start').nullable().defaultTo(null)
-      table.date('selection_end').nullable().defaultTo(null)
-      table.integer('minimum_level').nullable().defaultTo(0)
-      table.integer('activity_type', 2).nullable().defaultTo(null)
-      table.integer('activity_category').nullable().defaultTo(null)
-      table.jsonb('additional_config').nullable().defaultTo({
+      table.string('name').notNullable()
+      table.string('slug').unique().notNullable()
+      table.text('description')
+
+      table.date('activity_start')
+      table.date('activity_end')
+      table.date('registration_start')
+      table.date('registration_end')
+      table.date('selection_start')
+      table.date('selection_end')
+
+      table.integer('activity_type')
+      table.integer('activity_category')
+
+      table.jsonb('additional_config').defaultTo({
         custom_selection_status: [],
         mandatory_profile_data: [],
         additional_questionnaire: [],
         images: [],
       })
-      table.integer('is_published', 1).defaultTo(1)
 
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
+      table.integer('minimum_level').defaultTo(0)
+      table.boolean('is_published').defaultTo(false)
+
+      table.timestamp('created_at')
+      table.timestamp('updated_at')
     })
   }
 

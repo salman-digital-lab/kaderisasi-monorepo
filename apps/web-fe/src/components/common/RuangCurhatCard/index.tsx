@@ -32,7 +32,7 @@ export default function RuangCurhatCard({ data }: RuangCurhatCardProps) {
     <Card withBorder radius="md">
       <Card.Section withBorder inheritPadding py="xs">
         <Group justify="space-between">
-          <Title order={4}>{PROBLEM_OWNER_RENDER[data.problem_owner]}</Title>
+          <Title order={4}>{PROBLEM_OWNER_RENDER[data.problem_ownership]}</Title>
           <Badge color={PROBLEM_STATUS_RENDER_COLOR[data.status]}>
             {PROBLEM_STATUS_RENDER[data.status]}
           </Badge>
@@ -51,8 +51,8 @@ export default function RuangCurhatCard({ data }: RuangCurhatCardProps) {
       </Card.Section>
       <Card.Section>
         <Accordion variant="default">
-          {data.problem_owner === PROBLEM_OWNER_ENUM.TEMAN ? (
-            <Accordion.Item key="problem_owner" value="problem_owner">
+          {data.problem_ownership === PROBLEM_OWNER_ENUM.TEMAN ? (
+            <Accordion.Item key="problem_ownership" value="problem_ownership">
               <Accordion.Control>
                 <Title order={5}>Pemilik Masalah</Title>
               </Accordion.Control>

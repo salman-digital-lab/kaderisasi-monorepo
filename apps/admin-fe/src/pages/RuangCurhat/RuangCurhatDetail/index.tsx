@@ -57,7 +57,7 @@ export function RuangCurhatDetail() {
     {
       key: "2",
       label: "Kepemilikan ",
-      children: renderProblemOwner(data?.problem_owner),
+      children: renderProblemOwner(data?.problem_ownership),
     },
     {
       key: "4",

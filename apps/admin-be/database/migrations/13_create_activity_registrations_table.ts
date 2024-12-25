@@ -6,8 +6,8 @@ export default class extends BaseSchema {
   async up() {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.integer('user_id').references('id').inTable('public_users').onDelete('CASCADE')
-      table.integer('activity_id').references('id').inTable('activities').onDelete('CASCADE')
+      table.integer('user_id').references('public_users.id').onDelete('CASCADE')
+      table.integer('activity_id').references('activities.id').onDelete('CASCADE')
       table.string('status', 50)
       table.jsonb('questionnaire_answer').defaultTo({})
 

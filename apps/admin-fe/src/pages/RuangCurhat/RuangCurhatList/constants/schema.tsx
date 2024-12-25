@@ -20,7 +20,7 @@ export const TABLE_SCHEMA: TableProps<RuangCurhatData>["columns"] = [
   },
   {
     title: "Kepemilikan Masalah",
-    dataIndex: "problem_owner",
+    dataIndex: "problem_ownership",
     render: (text) => renderProblemOwner(text),
   },
 

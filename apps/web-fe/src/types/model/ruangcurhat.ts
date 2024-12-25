@@ -8,7 +8,7 @@ import {
 export type RuangCurhatData = {
   id: number;
   user_id: number;
-  problem_owner: PROBLEM_OWNER_ENUM;
+  problem_ownership: PROBLEM_OWNER_ENUM;
   owner_name: string;
   problem_category: string;
   problem_description: string;

@@ -9,7 +9,7 @@ export const RuangCurhatFactory = factory
     const admins = await AdminUser.query().select('id')
     return {
       user_id: users[Math.floor(Math.random() * (users.length - 1))].id,
-      problem_owner: faker.number.int({ min: 0, max: 1 }),
+      problem_ownership: faker.number.int({ min: 0, max: 1 }),
       owner_name: faker.person.fullName(),
       problem_category: faker.lorem.word(),
       problem_description: faker.lorem.paragraphs(),

@@ -16,7 +16,7 @@ type RegistrationFormProps = {
 };
 
 type RegistrationFormItems = {
-  problem_owner: string;
+  problem_ownership: string;
   problem_category: string;
   problem_description: string;
   handling_technic: string;
@@ -29,7 +29,7 @@ export default function RegistrationForm({ token }: RegistrationFormProps) {
 
   const form = useForm({
     initialValues: {
-      problem_owner: "",
+      problem_ownership: "",
       owner_name: "",
       problem_category: "",
       problem_description: "",
@@ -38,7 +38,7 @@ export default function RegistrationForm({ token }: RegistrationFormProps) {
     },
   });
 
-  form.watch("problem_owner", ({ value }) => {
+  form.watch("problem_ownership", ({ value }) => {
     setIsFriend(value === String(PROBLEM_OWNER_ENUM.TEMAN));
   });
 
@@ -47,7 +47,7 @@ export default function RegistrationForm({ token }: RegistrationFormProps) {
       setLoading(true);
       const resp = await postRuangCurhat(token, {
         ...val,
-        problem_owner: Number(val.problem_owner),
+        problem_ownership: Number(val.problem_ownership),
       });
       if (resp) {
         showNotif(resp.message);
@@ -67,8 +67,8 @@ export default function RegistrationForm({ token }: RegistrationFormProps) {
       onSubmit={form.onSubmit((val) => handleRegistration(val))}
     >
       <Select
-        {...form.getInputProps("problem_owner")}
-        key={form.key("problem_owner")}
+        {...form.getInputProps("problem_ownership")}
+        key={form.key("problem_ownership")}
         label="Kepemilikan Masalah"
         placeholder="Pilih Kepemilikan Masalah"
         data={PROBLEM_OWNER_OPTIONS}
