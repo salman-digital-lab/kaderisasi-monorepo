@@ -6,10 +6,6 @@ const ProfilesController = () => import('#controllers/profiles_controller')
 const ActivitiesController = () => import('#controllers/activities_controller')
 const RuangCurhatsController = () => import('#controllers/ruang_curhats_controller')
 
-router.get('/', () => {
-  return 'Hello world from the home page.'
-})
-
 router
   .group(() => {
     router
@@ -18,7 +14,7 @@ router
         router.post('login', [AuthController, 'login'])
         router.post('forgot-password', [AuthController, 'sendPasswordRecovery'])
         router.put('reset-password', [AuthController, 'resetPassword'])
-        router.put('logout', [AuthController, 'logout']).use(middleware.auth({ guards: ['api'] }))
+        router.put('logout', [AuthController, 'logout']).use(middleware.auth())
       })
       .prefix('auth')
 
@@ -30,25 +26,15 @@ router
         router.get('activities/:slug', [ActivitiesController, 'registrationCheck'])
       })
       .prefix('profiles')
-      .use(
-        middleware.auth({
-          guards: ['api'],
-        })
-      )
+      .use(middleware.auth())
 
     router
       .group(() => {
-        router.post(':slug/register/', [ActivitiesController, 'register']).use(
-          middleware.auth({
-            guards: ['api'],
-          })
-        )
+        router.post(':slug/register/', [ActivitiesController, 'register']).use(middleware.auth())
 
-        router.put(':slug/registration', [ActivitiesController, 'questionnaireEdit']).use(
-          middleware.auth({
-            guards: ['api'],
-          })
-        )
+        router
+          .put(':slug/registration', [ActivitiesController, 'questionnaireEdit'])
+          .use(middleware.auth())
         router.get('/:slug', [ActivitiesController, 'show'])
         router.get('', [ActivitiesController, 'index'])
       })
@@ -60,10 +46,6 @@ router
         router.get('', [RuangCurhatsController, 'history'])
       })
       .prefix('ruang-curhat')
-      .use(
-        middleware.auth({
-          guards: ['api'],
-        })
-      )
+      .use(middleware.auth())
   })
   .prefix('v2')

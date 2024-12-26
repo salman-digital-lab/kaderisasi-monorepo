@@ -1,15 +1,16 @@
 import { HttpContext } from '@adonisjs/core/http'
+import database from '@adonisjs/lucid/services/db'
+import hash from '@adonisjs/core/services/hash'
+import mail from '@adonisjs/mail/services/main'
+import encryption from '@adonisjs/core/services/encryption'
+
 import {
   registerValidator,
   loginValidator,
   resetPasswordValidator,
 } from '#validators/auth_validator'
-import database from '@adonisjs/lucid/services/db'
-import hash from '@adonisjs/core/services/hash'
 import PublicUser from '#models/public_user'
 import Profile from '#models/profile'
-import mail from '@adonisjs/mail/services/main'
-import encryption from '@adonisjs/core/services/encryption'
 import env from '#start/env'
 
 export default class AuthController {

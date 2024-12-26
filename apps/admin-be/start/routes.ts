@@ -16,10 +16,6 @@ const RolesController = () => import('#controllers/roles_controller')
 const PermissionsController = () => import('#controllers/permissions_controller')
 const RolesPermissionsController = () => import('#controllers/roles_permissions_controller')
 
-router.get('/', () => {
-  return 'Hello world from the home page.'
-})
-
 router
   .group(() => {
     router
