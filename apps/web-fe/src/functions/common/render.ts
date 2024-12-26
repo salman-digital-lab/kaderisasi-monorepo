@@ -6,4 +6,5 @@ export const NOTIFICATION_TEXT_RENDER = {
   UNMATCHED_LEVEL: "Jenjang anda belum cukup",
   EMAIL_ALREADY_REGISTERED: "Email anda sudah terdaftar",
   ALREADY_REGISTERED: "Anda sudah terdaftar",
+  INVALID_TOKEN: "Token anda salah atau sudah kadaluarsa",
 } as Record<string, string>;

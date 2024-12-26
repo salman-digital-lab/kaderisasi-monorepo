@@ -1,65 +1,51 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { PasswordInput, TextInput } from "@mantine/core";
-import { hasLength, isEmail, matchesField, useForm } from "@mantine/form";
+import { hasLength, matchesField, useForm } from "@mantine/form";
 
 import showNotif from "@/functions/common/notification";
-import register from "@/functions/server/register";
+import { putResetPassword } from "@/services/auth";
 
-export default function RegistrationForm() {
+export default function ResetPasswordForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const form = useForm({
     mode: "controlled",
     initialValues: {
       password: "",
-      email: "",
       confirmPassword: "",
-      fullname: "",
     },
     validate: {
-      email: isEmail("Invalid email"),
       password: hasLength({ min: 6 }, "Minimal memiliki 6 karakter"),
       confirmPassword: matchesField("password", "Password tidak sama"),
     },
   });
 
-  const handleRegistration = async (registrationFormData: {
-    email: string;
+  const handleResetPassword = async (resetPasswordFormData: {
     password: string;
-    fullname: string;
   }) => {
     try {
-      const message = await register(registrationFormData);
+      const message = await putResetPassword(
+        searchParams.get("token") || "",
+        resetPasswordFormData,
+      );
       if (message)
-        showNotif("Registrasi berhasil. Silahkan masuk ke akun anda.");
+        showNotif("Password berhasil diubah. Silahkan masuk ke akun anda.");
       router.push("/login");
     } catch (error: unknown) {
+      console.log(error);
       if (error instanceof Error) showNotif(error.message, true);
+      if (typeof error === "string") showNotif(error, true);
     }
   };
 
   return (
     <form
       id="login-form"
-      onSubmit={form.onSubmit((val) => handleRegistration(val))}
+      onSubmit={form.onSubmit((val) => handleResetPassword(val))}
     >
-      <TextInput
-        {...form.getInputProps("fullname")}
-        key={form.key("fullname")}
-        label="Nama Lengkap"
-        placeholder="Nama Lengkap Anda"
-        required
-      />
-      <TextInput
-        {...form.getInputProps("email")}
-        key={form.key("email")}
-        label="Email"
-        placeholder="Email Anda"
-        required
-        mt="md"
-      />
       <PasswordInput
         {...form.getInputProps("password")}
         key={form.key("password")}

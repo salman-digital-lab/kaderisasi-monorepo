@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { Anchor, Paper, Title, Text, Container, Button } from "@mantine/core";
 import Link from "next/link";
+import { Paper, Title, Container, Button } from "@mantine/core";
 
 import logo from "@/assets/bmka_logo_color.png";
-import LoginForm from "../../features/auth/LoginForm";
 
 import classes from "./index.module.css";
+import ResetPasswordForm from "@/features/auth/ResetPasswordForm";
 
 export default function Page() {
   return (
@@ -15,25 +15,13 @@ export default function Page() {
       </div>
 
       <Title ta="center" className={classes.title}>
-        Selamat Datang
+        Ubah Password
       </Title>
-      <Text c="dimmed" size="sm" ta="center" mt={5}>
-        Belum Punya Akun?{" "}
-        <Anchor size="sm" component={Link} href="/register">
-          Buat Akun Disini
-        </Anchor>
-      </Text>
-      <Text c="dimmed" size="sm" ta="center" mt={5}>
-        Lupa Password?{" "}
-        <Anchor size="sm" component={Link} href="/forgot">
-          Disini
-        </Anchor>
-      </Text>
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <LoginForm />
+        <ResetPasswordForm />
         <Button form="login-form" type="submit" fullWidth mt="xl">
-          Masuk
+          Ubah Password
         </Button>
         <Button variant="default" fullWidth mt="xl" component={Link} href="/">
           Kembali ke Beranda

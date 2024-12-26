@@ -1,10 +1,11 @@
 "use client";
 
-import showNotif from "../../../functions/common/notification";
-import login from "../../../functions/server/login";
+import { useRouter } from "next/navigation";
 import { PasswordInput, TextInput } from "@mantine/core";
 import { isEmail, useForm } from "@mantine/form";
-import { useRouter } from "next/navigation";
+
+import showNotif from "@/functions/common/notification";
+import login from "@/functions/server/login";
 
 export default function LoginForm() {
   const router = useRouter();
