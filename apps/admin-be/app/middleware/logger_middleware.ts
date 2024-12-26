@@ -1,8 +1,9 @@
 import { HttpContext } from '@adonisjs/core/http'
 import { NextFn } from '@adonisjs/core/types/http'
+import logger from '@adonisjs/core/services/logger'
 
 export default class {
-  async handle({ request, response, logger }: HttpContext, next: NextFn) {
+  async handle({ request, response }: HttpContext, next: NextFn) {
     await next()
     const datetime = new Date().toLocaleString()
 
@@ -17,9 +18,7 @@ export default class {
           ' | URL: ' +
           request.url() +
           ' | STATUS: ' +
-          JSON.stringify(response.getStatus()) +
-          ' | BODY: ' +
-          JSON.stringify(response.getBody())
+          JSON.stringify(response.getStatus())
       )
     } else {
       logger.error(
