@@ -26,7 +26,7 @@ export type Member = {
   university?: University;
 
   major: string | undefined;
-  intake_year: string | undefined;
+  intake_year: number | undefined;
   
   created_at: string;
   updated_at: string;

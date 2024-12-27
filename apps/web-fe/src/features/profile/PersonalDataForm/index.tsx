@@ -1,6 +1,13 @@
 "use client";
 
-import { Button, Fieldset, Paper, Select, TextInput } from "@mantine/core";
+import {
+  Button,
+  Fieldset,
+  NumberInput,
+  Paper,
+  Select,
+  TextInput,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 import { GENDER_OPTION } from "@/constants/form/profile";
@@ -56,8 +63,12 @@ export default function PersonalDataForm({
   ) => {
     const finalFormData = {
       ...rawFormData,
-      province_id: Number(rawFormData.province_id),
-      university_id: Number(rawFormData.university_id),
+      province_id: rawFormData.province_id
+        ? Number(rawFormData.province_id)
+        : undefined,
+      university_id: rawFormData.university_id
+        ? Number(rawFormData.university_id)
+        : undefined,
     };
 
     try {
@@ -97,8 +108,8 @@ export default function PersonalDataForm({
           <TextInput
             {...form.getInputProps("personal_id")}
             key={form.key("personal_id")}
-            label="Nomor KTP"
-            placeholder="Nomor KTP"
+            label="Nomor Identitas"
+            placeholder="Nomor Identitas"
             mt="md"
           />
         </Fieldset>
@@ -172,7 +183,7 @@ export default function PersonalDataForm({
             placeholder="Jurusan"
             mt="md"
           />
-          <TextInput
+          <NumberInput
             {...form.getInputProps("intake_year")}
             key={form.key("intake_year")}
             label="Angkatan"
@@ -181,7 +192,7 @@ export default function PersonalDataForm({
           />
         </Fieldset>
 
-        <Button type="submit" mt="md">
+        <Button type="submit" mt="md" loading={form.submitting}>
           Ubah Data Diri
         </Button>
       </form>

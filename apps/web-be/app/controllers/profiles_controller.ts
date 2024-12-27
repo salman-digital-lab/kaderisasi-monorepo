@@ -3,6 +3,7 @@ import PublicUser from '#models/public_user'
 import Profile from '#models/profile'
 import ActivityRegistration from '#models/activity_registration'
 import { updateProfileValidator } from '#validators/profile_validator'
+import { errors } from '@vinejs/vine'
 
 export default class ProfilesController {
   async show({ response, auth }: HttpContext) {
@@ -32,8 +33,8 @@ export default class ProfilesController {
   }
 
   async update({ request, response, auth }: HttpContext) {
-    const payload = await updateProfileValidator.validate(request.all())
     try {
+      const payload = await updateProfileValidator.validate(request.all())
       const id = auth.user?.id
       const profile = await Profile.findByOrFail('user_id', id)
       const updated = await profile.merge(payload).save()
@@ -43,6 +44,12 @@ export default class ProfilesController {
         data: updated,
       })
     } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        return response.internalServerError({
+          message: error.messages[0]?.message || 'GENERAL_ERROR',
+          error: error.messages,
+        })
+      }
       return response.internalServerError({
         message: 'GENERAL_ERROR',
         error: error.message,

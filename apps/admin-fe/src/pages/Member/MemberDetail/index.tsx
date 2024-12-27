@@ -60,9 +60,7 @@ const MemberDetailPage = () => {
         tiktok: data?.profile[0].instagram,
         line: data?.profile[0].line,
         major: data?.profile[0].major,
-        intake_year: data?.profile[0].intake_year
-          ? Number(data?.profile[0].intake_year)
-          : undefined,
+        intake_year: data?.profile[0].intake_year,
         university_id: data?.profile[0].university_id,
         province_id: data?.profile[0].province_id,
         level: data?.profile[0].level,
@@ -150,9 +148,7 @@ const MemberDetailPage = () => {
                   university_id: value.university_id,
                   major: value.major,
                   level: value.level,
-                  intake_year: value.intake_year
-                    ? String(value.intake_year)
-                    : undefined,
+                  intake_year: value.intake_year,
                 },
               });
               toggleEdit();

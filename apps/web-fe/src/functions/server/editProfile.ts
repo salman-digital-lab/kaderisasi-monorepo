@@ -17,8 +17,7 @@ export default async function editProfile(data: LoginFormData) {
   const { session } = await verifySession();
 
   try {
-    const response = putProfile(session || "", formData);
-
+    const response = await putProfile(session || "", formData);
     return response;
   } catch (error: unknown) {
     handleCatchError(error);
