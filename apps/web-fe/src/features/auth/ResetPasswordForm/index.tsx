@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { PasswordInput, TextInput } from "@mantine/core";
+import { Button, PasswordInput, TextInput } from "@mantine/core";
 import { hasLength, matchesField, useForm } from "@mantine/form";
 
 import showNotif from "@/functions/common/notification";
@@ -42,26 +42,37 @@ export default function ResetPasswordForm() {
   };
 
   return (
-    <form
-      id="login-form"
-      onSubmit={form.onSubmit((val) => handleResetPassword(val))}
-    >
-      <PasswordInput
-        {...form.getInputProps("password")}
-        key={form.key("password")}
-        label="Password"
-        placeholder="Password Anda"
-        required
-        mt="md"
-      />
-      <PasswordInput
-        {...form.getInputProps("confirmPassword")}
-        key={form.key("confirmPassword")}
-        label="Konfirmasi Password"
-        placeholder="Tulis Ulang Password Anda"
-        required
-        mt="md"
-      />
-    </form>
+    <>
+      <form
+        id="login-form"
+        onSubmit={form.onSubmit((val) => handleResetPassword(val))}
+      >
+        <PasswordInput
+          {...form.getInputProps("password")}
+          key={form.key("password")}
+          label="Password"
+          placeholder="Password Anda"
+          required
+          mt="md"
+        />
+        <PasswordInput
+          {...form.getInputProps("confirmPassword")}
+          key={form.key("confirmPassword")}
+          label="Konfirmasi Password"
+          placeholder="Tulis Ulang Password Anda"
+          required
+          mt="md"
+        />
+      </form>
+      <Button
+        form="login-form"
+        type="submit"
+        fullWidth
+        mt="xl"
+        loading={form.submitting}
+      >
+        Ubah Password
+      </Button>
+    </>
   );
 }

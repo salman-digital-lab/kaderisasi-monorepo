@@ -3,6 +3,7 @@ import Activity from '#models/activity'
 import { activityRegistrationValidator } from '#validators/activity_validator'
 import ActivityRegistration from '#models/activity_registration'
 import Profile from '#models/profile'
+import { errors } from '@vinejs/vine'
 
 export default class ActivitiesController {
   async index({ request, response }: HttpContext) {
@@ -84,9 +85,9 @@ export default class ActivitiesController {
   }
 
   async register({ params, request, response, auth }: HttpContext) {
-    const data = await activityRegistrationValidator.validate(request.all())
     const user = auth.getUserOrFail()
     try {
+      const data = await activityRegistrationValidator.validate(request.all())
       const activitySlug: number = params.slug
       const userData = await Profile.findOrFail(user.id)
       const activity = await Activity.findByOrFail('slug', activitySlug)
@@ -118,6 +119,12 @@ export default class ActivitiesController {
         data: registration,
       })
     } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        return response.internalServerError({
+          message: error.messages[0]?.message || 'GENERAL_ERROR',
+          error: error.messages,
+        })
+      }
       return response.internalServerError({
         message: 'GENERAL_ERROR',
         error: error.message,
@@ -126,9 +133,9 @@ export default class ActivitiesController {
   }
 
   async questionnaireEdit({ auth, params, request, response }: HttpContext) {
-    const data = await activityRegistrationValidator.validate(request.all())
     const user = auth.getUserOrFail()
     try {
+      const data = await activityRegistrationValidator.validate(request.all())
       const activitySlug: number = params.slug
       const activity = await Activity.findBy('slug', activitySlug)
       if (!activity) {
@@ -158,6 +165,12 @@ export default class ActivitiesController {
         data: updated,
       })
     } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        return response.internalServerError({
+          message: error.messages[0]?.message || 'GENERAL_ERROR',
+          error: error.messages,
+        })
+      }
       return response.internalServerError({
         message: 'GENERAL_ERROR',
         error: error.message,

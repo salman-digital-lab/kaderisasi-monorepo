@@ -20,9 +20,7 @@ export default function Page() {
 
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <ResetPasswordForm />
-        <Button form="login-form" type="submit" fullWidth mt="xl">
-          Ubah Password
-        </Button>
+
         <Button variant="default" fullWidth mt="xl" component={Link} href="/">
           Kembali ke Beranda
         </Button>

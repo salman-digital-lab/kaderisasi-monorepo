@@ -12,11 +12,12 @@ import {
 import PublicUser from '#models/public_user'
 import Profile from '#models/profile'
 import env from '#start/env'
+import { errors } from '@vinejs/vine'
 
 export default class AuthController {
   async register({ request, response }: HttpContext) {
-    const payload = await registerValidator.validate(request.all())
     try {
+      const payload = await registerValidator.validate(request.all())
       const exist = await PublicUser.findBy('email', payload.email)
 
       if (exist) {
@@ -44,6 +45,12 @@ export default class AuthController {
         })
       })
     } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        return response.internalServerError({
+          message: error.messages[0]?.message || 'GENERAL_ERROR',
+          error: error.messages,
+        })
+      }
       return response.internalServerError({
         message: 'GENERAL_ERROR',
         error: error.message,
@@ -52,8 +59,8 @@ export default class AuthController {
   }
 
   async login({ request, response }: HttpContext) {
-    const payload = await loginValidator.validate(request.all())
     try {
+      const payload = await loginValidator.validate(request.all())
       const email: string = payload.email
       const password: string = payload.password
       const user = await PublicUser.query().where('email', email).first()
@@ -78,6 +85,12 @@ export default class AuthController {
         data: { user, data, token },
       })
     } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        return response.internalServerError({
+          message: error.messages[0]?.message || 'GENERAL_ERROR',
+          error: error.messages,
+        })
+      }
       return response.internalServerError({
         message: 'GENERAL_ERROR',
         error: error.message,
@@ -121,8 +134,8 @@ export default class AuthController {
 
   async resetPassword({ request, response }: HttpContext) {
     const token: string = request.qs().token
-    const { password } = await resetPasswordValidator.validate(request.all())
     try {
+      const { password } = await resetPasswordValidator.validate(request.all())
       const decrypted = encryption.decrypt(token)
       const user = await PublicUser.findBy('email', decrypted)
 
@@ -138,6 +151,12 @@ export default class AuthController {
         message: 'RESET_PASSWORD_SUCCESS',
       })
     } catch (error) {
+      if (error instanceof errors.E_VALIDATION_ERROR) {
+        return response.internalServerError({
+          message: error.messages[0]?.message || 'GENERAL_ERROR',
+          error: error.messages,
+        })
+      }
       return response.internalServerError({
         message: 'GENERAL_ERROR',
         error: error.message,

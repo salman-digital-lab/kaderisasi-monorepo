@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { TextInput } from "@mantine/core";
+import { Button, TextInput } from "@mantine/core";
 import { isEmail, useForm } from "@mantine/form";
 
 import showNotif from "@/functions/common/notification";
@@ -31,14 +31,28 @@ export default function ForgotForm() {
   };
 
   return (
-    <form id="login-form" onSubmit={form.onSubmit((val) => handleForgot(val))}>
-      <TextInput
-        {...form.getInputProps("email")}
-        key={form.key("email")}
-        label="Email"
-        placeholder="Email Anda"
-        required
-      />
-    </form>
+    <>
+      <form
+        id="login-form"
+        onSubmit={form.onSubmit((val) => handleForgot(val))}
+      >
+        <TextInput
+          {...form.getInputProps("email")}
+          key={form.key("email")}
+          label="Email"
+          placeholder="Email Anda"
+          required
+        />
+      </form>
+      <Button
+        form="login-form"
+        type="submit"
+        fullWidth
+        mt="xl"
+        loading={form.submitting}
+      >
+        Kirim Email
+      </Button>
+    </>
   );
 }

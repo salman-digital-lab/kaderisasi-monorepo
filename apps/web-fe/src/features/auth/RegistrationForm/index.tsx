@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { PasswordInput, TextInput } from "@mantine/core";
+import { Button, PasswordInput, TextInput } from "@mantine/core";
 import { hasLength, isEmail, matchesField, useForm } from "@mantine/form";
 
 import showNotif from "@/functions/common/notification";
@@ -41,41 +41,52 @@ export default function RegistrationForm() {
   };
 
   return (
-    <form
-      id="login-form"
-      onSubmit={form.onSubmit((val) => handleRegistration(val))}
-    >
-      <TextInput
-        {...form.getInputProps("fullname")}
-        key={form.key("fullname")}
-        label="Nama Lengkap"
-        placeholder="Nama Lengkap Anda"
-        required
-      />
-      <TextInput
-        {...form.getInputProps("email")}
-        key={form.key("email")}
-        label="Email"
-        placeholder="Email Anda"
-        required
-        mt="md"
-      />
-      <PasswordInput
-        {...form.getInputProps("password")}
-        key={form.key("password")}
-        label="Password"
-        placeholder="Password Anda"
-        required
-        mt="md"
-      />
-      <PasswordInput
-        {...form.getInputProps("confirmPassword")}
-        key={form.key("confirmPassword")}
-        label="Konfirmasi Password"
-        placeholder="Tulis Ulang Password Anda"
-        required
-        mt="md"
-      />
-    </form>
+    <>
+      <form
+        id="login-form"
+        onSubmit={form.onSubmit((val) => handleRegistration(val))}
+      >
+        <TextInput
+          {...form.getInputProps("fullname")}
+          key={form.key("fullname")}
+          label="Nama Lengkap"
+          placeholder="Nama Lengkap Anda"
+          required
+        />
+        <TextInput
+          {...form.getInputProps("email")}
+          key={form.key("email")}
+          label="Email"
+          placeholder="Email Anda"
+          required
+          mt="md"
+        />
+        <PasswordInput
+          {...form.getInputProps("password")}
+          key={form.key("password")}
+          label="Password"
+          placeholder="Password Anda"
+          required
+          mt="md"
+        />
+        <PasswordInput
+          {...form.getInputProps("confirmPassword")}
+          key={form.key("confirmPassword")}
+          label="Konfirmasi Password"
+          placeholder="Tulis Ulang Password Anda"
+          required
+          mt="md"
+        />
+      </form>
+      <Button
+        form="login-form"
+        type="submit"
+        fullWidth
+        mt="xl"
+        loading={form.submitting}
+      >
+        Daftar
+      </Button>
+    </>
   );
 }

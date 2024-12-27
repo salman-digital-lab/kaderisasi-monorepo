@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { PasswordInput, TextInput } from "@mantine/core";
+import { Button, PasswordInput, TextInput } from "@mantine/core";
 import { isEmail, useForm } from "@mantine/form";
 
 import showNotif from "@/functions/common/notification";
@@ -32,22 +32,33 @@ export default function LoginForm() {
   };
 
   return (
-    <form id="login-form" onSubmit={form.onSubmit((val) => handleLogin(val))}>
-      <TextInput
-        {...form.getInputProps("email")}
-        key={form.key("email")}
-        label="Email"
-        placeholder="Email Anda"
-        required
-      />
-      <PasswordInput
-        {...form.getInputProps("password")}
-        key={form.key("password")}
-        label="Password"
-        placeholder="Password Anda"
-        required
-        mt="md"
-      />
-    </form>
+    <>
+      <form id="login-form" onSubmit={form.onSubmit((val) => handleLogin(val))}>
+        <TextInput
+          {...form.getInputProps("email")}
+          key={form.key("email")}
+          label="Email"
+          placeholder="Email Anda"
+          required
+        />
+        <PasswordInput
+          {...form.getInputProps("password")}
+          key={form.key("password")}
+          label="Password"
+          placeholder="Password Anda"
+          required
+          mt="md"
+        />
+      </form>
+      <Button
+        form="login-form"
+        type="submit"
+        fullWidth
+        mt="xl"
+        loading={form.submitting}
+      >
+        Masuk
+      </Button>
+    </>
   );
 }
