@@ -1,13 +1,14 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { Button, PasswordInput, TextInput } from "@mantine/core";
+import { Button, PasswordInput } from "@mantine/core";
 import { hasLength, matchesField, useForm } from "@mantine/form";
 
 import showNotif from "@/functions/common/notification";
 import { putResetPassword } from "@/services/auth";
+import { Suspense } from "react";
 
-export default function ResetPasswordForm() {
+function Component() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -74,5 +75,13 @@ export default function ResetPasswordForm() {
         Ubah Password
       </Button>
     </>
+  );
+}
+
+export default function ResetPasswordForm() {
+  return (
+    <Suspense>
+      <Component />
+    </Suspense>
   );
 }
