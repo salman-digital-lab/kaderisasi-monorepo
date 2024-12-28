@@ -42,6 +42,6 @@
     "typescript": "^5.4.5",
     "vite": "^4.5.3",
     "vite-plugin-env-compatible": "^2.0.1",
-    "@kaderisasi/data-model": "*"
+    "@kaderisasi/data-model": "file:../../packages/data-model"
   }
 }
